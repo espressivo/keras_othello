@@ -76,8 +76,11 @@ while num < 64 and passes <= 1:
     passes += 1
     continue
 
+  y = x = None
   if turn == '●':
-    y, x = map(int, input('候補手:%s:'%cands).split())
+    s = input('候補手:%s:'%cands).split()
+    if len(s) == 2:
+      y, x = map(int, s)
   else:
     preds = predict(board, turn, opo)
     print('\n'.join(list(map(str, preds[:5]))))
